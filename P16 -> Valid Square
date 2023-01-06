@@ -1,0 +1,24 @@
+class Solution {
+public:
+    double distance(vector<int>& p, vector<int>& q){
+       int x = p[0]-q[0];
+       int y = p[1]-q[1];
+        
+        return sqrt((x*x) + (y*y));
+    }
+
+    bool validSquare(vector<int>& p1, vector<int>& p2, vector<int>& p3, vector<int>& p4) {
+        double a = distance(p1,p2);
+        double b = distance(p1,p3);
+        double c = distance(p1,p4);
+        double d = distance(p2,p3);
+        double e = distance(p2,p4);
+        double f = distance(p3,p4);
+      
+      unordered_set<double> s;
+      s.insert({a,b,c,d,e,f});
+
+      return  !s.count(0) && s.size() == 2;
+        
+    }
+};
